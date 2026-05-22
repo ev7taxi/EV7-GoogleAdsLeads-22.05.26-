@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ลงทะเบียน</title>
+
+<style>
+
+body{
+font-family:sans-serif;
+padding:20px;
+max-width:500px;
+margin:auto;
+}
+
+input,select{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+font-size:16px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:16px;
+font-size:18px;
+background:#000;
+color:#fff;
+border:none;
+}
+
+.checkbox-group{
+margin-bottom:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>ลงทะเบียนรับสิทธิ์</h2>
+
+<form id="leadForm">
+
+<input type="text" name="fullname" placeholder="ชื่อ-นามสกุล" required>
+
+<input
+type="tel"
+name="phone"
+placeholder="เบอร์โทร 10 หลัก"
+maxlength="12"
+required
+>
+
+<select name="age" required>
+<option value="">อายุ</option>
+<script>
+for(let i=18;i<=70;i++){
+document.write(`<option value="${i}">${i}</option>`)
+}
+</script>
+</select>
+
+<select name="idcard" required>
+<option value="">มีบัตรประชาชนหรือไม่</option>
+<option>มี</option>
+<option>ไม่มี</option>
+</select>
+
+<select name="publicLicense" required>
+<option value="">มีใบขับขี่สาธารณะ/บัตรเหลืองหรือไม่</option>
+<option>มี</option>
+<option>ไม่มี</option>
+</select>
+
+<select name="privateLicense" required>
+<option value="">มีใบขับขี่ส่วนบุคคลเกิน 1 ปีหรือไม่</option>
+<option>มี</option>
+<option>ไม่มี</option>
+</select>
+
+<select name="statement" required>
+<option value="">มี Statement 6 เดือนหรือไม่</option>
+<option>มี</option>
+<option>ไม่มี</option>
+</select>
+
+<div class="checkbox-group">
+
+<p>แอปที่เคยขับ</p>
+
+<label><input type="checkbox" name="apps" value="Grab"> Grab</label><br>
+<label><input type="checkbox" name="apps" value="LINEMAN"> LINEMAN</label><br>
+<label><input type="checkbox" name="apps" value="Bolt"> Bolt</label><br>
+<label><input type="checkbox" name="apps" value="TADA"> TADA</label><br>
+<label><input type="checkbox" name="apps" value="LALAMOVE"> LALAMOVE</label><br>
+<label><input type="checkbox" name="apps" value="Maxim"> Maxim</label><br>
+<label><input type="checkbox" name="apps" value="Indrive"> Indrive</label>
+
+</div>
+
+<label>
+<input type="checkbox" name="pdpa" required>
+ยินยอมให้ติดต่อกลับตาม PDPA
+</label>
+
+<br><br>
+
+<label>
+<input type="checkbox" name="marketing">
+ยินยอมรับข้อมูลการตลาด
+</label>
+
+<input type="hidden" name="adsid" id="adsid">
+
+<button type="submit">
+ส่งข้อมูล
+</button>
+
+</form>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("adsid").value =
+params.get("gclid") ||
+params.get("utm_id") ||
+params.get("ad_id") ||
+"unknown";
+
+const phoneInput = document.querySelector('input[name="phone"]');
+
+phoneInput.addEventListener('input', function(e){
+
+let value = e.target.value.replace(/\D/g,'');
+
+if(value.length > 10){
+value = value.slice(0,10);
+}
+
+if(value.length >= 10){
+value = value.replace(
+/(\d{3})(\d{3})(\d{4})/,
+'$1-$2-$3'
+);
+}
+
+e.target.value = value;
+
+});
+
+document.getElementById('leadForm')
+.addEventListener('submit', async function(e){
+
+e.preventDefault();
+
+const formData = new FormData(this);
+
+const data = {
+fullname: formData.get('fullname'),
+phone: formData.get('phone').replace(/\D/g,''),
+age: formData.get('age'),
+idcard: formData.get('idcard'),
+publicLicense: formData.get('publicLicense'),
+privateLicense: formData.get('privateLicense'),
+statement: formData.get('statement'),
+apps: formData.getAll('apps'),
+pdpa: formData.get('pdpa') ? 'Yes' : 'No',
+marketing: formData.get('marketing') ? 'Yes' : 'No',
+adsid: formData.get('adsid')
+};
+
+await fetch("https://script.google.com/macros/s/AKfycby0aoVRgxkw7sqbv8HisqH5dmHkA9icq2ZfXoeTt7FBWzyUkqhsMlaGNQRKeD59PkoglA/exec",{
+method:"POST",
+body:JSON.stringify(data)
+});
+
+alert("ส่งข้อมูลสำเร็จ");
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
