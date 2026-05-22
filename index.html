@@ -1,727 +1,1387 @@
 <!DOCTYPE html>
+
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ลงทะเบียนรับสิทธิ์ - EV7</title>
+
+<title>สมัครขับ EV7</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-:root {
-  --green-primary: #2ECC71;
-  --green-dark: #27AE60;
-  --blue-primary: #3498DB;
-  --blue-dark: #2980B9;
-  --gray-50: #F8F9FA;
-  --gray-100: #F1F3F5;
-  --gray-200: #E9ECEF;
-  --gray-300: #DEE2E6;
-  --gray-600: #6C757D;
-  --gray-800: #343A40;
-  --gray-900: #212529;
-  --success: #28A745;
-  --danger: #DC3545;
-  --white: #FFFFFF;
+:root{
+
+--green:#2ECC71;
+--green-dark:#27AE60;
+
+--blue:#3498DB;
+--blue-dark:#2980B9;
+
+--dark:#1F2937;
+
+--gray:#6B7280;
+--light:#F8FAFC;
+
 }
 
-body {
-  font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  color: var(--gray-900);
-  line-height: 1.6;
+body{
+
+font-family:'Sarabun',sans-serif;
+
+background:
+linear-gradient(
+135deg,
+#EEF2FF 0%,
+#F8FAFC 100%
+);
+
+color:var(--dark);
+
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
+.container{
+
+max-width:980px;
+
+margin:auto;
+
+padding:18px;
+
 }
 
-.header {
-  background: linear-gradient(135deg, var(--green-primary) 0%, var(--blue-primary) 100%);
-  padding: 28px 32px;
-  border-radius: 16px 16px 0 0;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+.main-card{
+
+background:white;
+
+border-radius:24px;
+
+overflow:hidden;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,0.08);
+
 }
 
-.logo {
-  max-width: 200px;
-  height: auto;
-  margin-bottom: 12px;
-  filter: brightness(0) invert(1);
+.hero{
+
+background:
+linear-gradient(
+135deg,
+#2ECC71 0%,
+#3498DB 100%
+);
+
+padding:34px 24px 40px;
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
 }
 
-.header h1 {
-  color: var(--white);
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+width:260px;
+height:260px;
+
+background:
+rgba(255,255,255,0.08);
+
+border-radius:50%;
+
+top:-120px;
+right:-100px;
+
 }
 
-.header p {
-  color: rgba(255,255,255,0.95);
-  font-size: 15px;
-  font-weight: 400;
+.logo{
+
+width:190px;
+
+margin:auto;
+
+margin-bottom:18px;
+
+display:block;
+
+filter:
+brightness(0)
+invert(1);
+
 }
 
-.hero-image {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  display: block;
+.hero h1{
+
+font-size:34px;
+
+font-weight:800;
+
+color:white;
+
+margin-bottom:12px;
+
 }
 
-.form-container {
-  background: var(--white);
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  overflow: hidden;
+.hero p{
+
+font-size:16px;
+
+line-height:1.7;
+
+color:
+rgba(255,255,255,0.95);
+
+max-width:620px;
+
+margin:auto;
+
 }
 
-.form-body {
-  padding: 32px 40px 40px;
+.hero-image{
+
+width:100%;
+
+height:340px;
+
+object-fit:cover;
+
+display:block;
+
 }
 
-.section-title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--green-dark);
-  text-transform: uppercase;
-  margin: 24px 0 16px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.content{
+
+padding:34px;
+
 }
 
-.section-title:first-child {
-  margin-top: 0;
+.badge{
+
+display:inline-block;
+
+padding:8px 16px;
+
+border-radius:999px;
+
+background:
+rgba(46,204,113,0.12);
+
+color:var(--green-dark);
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:24px;
+
 }
 
-.section-title::before {
-  content: '';
-  width: 3px;
-  height: 16px;
-  background: linear-gradient(to bottom, var(--green-primary), var(--blue-primary));
-  border-radius: 2px;
+.section-title{
+
+font-size:14px;
+
+font-weight:800;
+
+letter-spacing:0.08em;
+
+text-transform:uppercase;
+
+color:var(--green-dark);
+
+margin-bottom:18px;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
+.section-title::before{
+
+content:"";
+
+width:4px;
+height:18px;
+
+border-radius:99px;
+
+background:
+linear-gradient(
+180deg,
+var(--green),
+var(--blue)
+);
+
 }
 
-.form-group {
-  margin-bottom: 16px;
+.car-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:18px;
+
+margin-bottom:28px;
+
 }
 
-.form-group.full {
-  grid-column: 1 / -1;
+.car-card{
+
+border:1px solid #E5E7EB;
+
+border-radius:18px;
+
+overflow:hidden;
+
+background:white;
+
+box-shadow:
+0 4px 10px rgba(0,0,0,0.05);
+
+transition:0.2s;
+
 }
 
-label {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-bottom: 8px;
+.car-card:hover{
+
+transform:translateY(-3px);
+
 }
 
-label .required {
-  color: var(--danger);
-  margin-left: 2px;
+.car-image{
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+display:block;
+
 }
 
-input[type="text"],
-input[type="tel"],
-select {
-  width: 100%;
-  height: 48px;
-  padding: 0 16px;
-  border: 1.5px solid var(--gray-300);
-  border-radius: 10px;
-  font-size: 15px;
-  font-family: inherit;
-  color: var(--gray-900);
-  background: var(--gray-50);
-  transition: all 0.2s ease;
-  outline: none;
+.car-content{
+
+padding:18px;
+
 }
 
-input[type="text"]:focus,
-input[type="tel"]:focus,
-select:focus {
-  border-color: var(--green-primary);
-  background: var(--white);
-  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+.car-name{
+
+font-size:22px;
+
+font-weight:800;
+
+margin-bottom:12px;
+
 }
 
-input[type="text"]::placeholder {
-  color: var(--gray-600);
+.car-price{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:999px;
+
+background:
+linear-gradient(
+135deg,
+var(--green),
+var(--blue)
+);
+
+color:white;
+
+font-size:20px;
+
+font-weight:800;
+
 }
 
-select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236C757D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 40px;
+.features{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:16px;
+
+margin-bottom:30px;
+
 }
 
-.checkbox-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 10px;
-  margin-top: 10px;
+.feature{
+
+background:var(--light);
+
+padding:18px;
+
+border-radius:16px;
+
+display:flex;
+
+gap:14px;
+
+align-items:flex-start;
+
 }
 
-.checkbox-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  background: var(--gray-50);
-  border: 1.5px solid var(--gray-300);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.feature-icon{
+
+width:44px;
+height:44px;
+
+border-radius:12px;
+
+background:
+linear-gradient(
+135deg,
+var(--green),
+var(--blue)
+);
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+color:white;
+
+font-size:20px;
+
+flex-shrink:0;
+
 }
 
-.checkbox-item:hover {
-  border-color: var(--green-primary);
-  background: rgba(46, 204, 113, 0.05);
+.feature-text{
+
+font-size:15px;
+
+font-weight:700;
+
+line-height:1.5;
+
 }
 
-.checkbox-item input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-  accent-color: var(--green-primary);
+.form-grid{
+
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:18px;
+
 }
 
-.checkbox-item span {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--gray-800);
+.form-group{
+
+margin-bottom:18px;
+
 }
 
-.consent-box {
-  background: linear-gradient(135deg, rgba(46, 204, 113, 0.08), rgba(52, 152, 219, 0.08));
-  border: 1.5px solid var(--green-primary);
-  border-radius: 12px;
-  padding: 20px;
-  margin: 24px 0;
+.full{
+
+grid-column:1/-1;
+
 }
 
-.consent-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 14px;
+label{
+
+display:block;
+
+font-size:14px;
+
+font-weight:700;
+
+margin-bottom:8px;
+
 }
 
-.consent-item:last-child {
-  margin-bottom: 0;
+.required{
+
+color:red;
+
 }
 
-.consent-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
-  cursor: pointer;
-  accent-color: var(--green-primary);
-  flex-shrink: 0;
+input[type=text],
+input[type=tel],
+select{
+
+width:100%;
+
+height:52px;
+
+padding:0 16px;
+
+border-radius:14px;
+
+border:1.5px solid #D1D5DB;
+
+font-size:15px;
+
+font-family:inherit;
+
+background:#FAFAFA;
+
+transition:0.2s;
+
+outline:none;
+
 }
 
-.consent-item label {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--gray-800);
-  line-height: 1.6;
-  cursor: pointer;
+input:focus,
+select:focus{
+
+border-color:var(--green);
+
+background:white;
+
+box-shadow:
+0 0 0 4px rgba(46,204,113,0.12);
+
 }
 
-.consent-item.required label::after {
-  content: '*';
-  color: var(--danger);
-  margin-left: 4px;
+.checkbox-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(160px,1fr));
+
+gap:12px;
+
+margin-top:12px;
+
 }
 
-.submit-btn {
-  width: 100%;
-  height: 56px;
-  background: linear-gradient(135deg, var(--green-primary) 0%, var(--blue-primary) 100%);
-  color: var(--white);
-  border: none;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
-  letter-spacing: 0.02em;
-  margin-top: 24px;
-  position: relative;
-  overflow: hidden;
+.checkbox-item{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:14px;
+
+border-radius:14px;
+
+background:#F9FAFB;
+
+border:1px solid #E5E7EB;
+
+cursor:pointer;
+
+transition:0.2s;
+
 }
 
-.submit-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: left 0.5s;
+.checkbox-item:hover{
+
+border-color:var(--green);
+
+background:
+rgba(46,204,113,0.05);
+
 }
 
-.submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
+.checkbox-item input{
+
+width:18px;
+height:18px;
+
+accent-color:var(--green);
+
 }
 
-.submit-btn:hover::before {
-  left: 100%;
+.benefit-box{
+
+background:
+linear-gradient(
+135deg,
+rgba(46,204,113,0.08),
+rgba(52,152,219,0.08)
+);
+
+padding:24px;
+
+border-radius:18px;
+
+margin:28px 0;
+
+border:1px solid rgba(46,204,113,0.2);
+
 }
 
-.submit-btn:active {
-  transform: translateY(0);
+.benefit-item{
+
+padding:12px 0;
+
+font-size:15px;
+
+font-weight:700;
+
+border-bottom:
+1px solid rgba(0,0,0,0.06);
+
 }
 
-.submit-btn:disabled {
-  background: var(--gray-300);
-  cursor: not-allowed;
-  box-shadow: none;
+.benefit-item:last-child{
+
+border-bottom:none;
+
 }
 
-.submit-btn:disabled:hover {
-  transform: none;
+.consent{
+
+background:#F8FAFC;
+
+padding:22px;
+
+border-radius:18px;
+
+margin-top:28px;
+
 }
 
-.spinner {
-  display: none;
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255,255,255,0.3);
-  border-top-color: var(--white);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin: 0 auto;
+.consent-item{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:12px;
+
+margin-bottom:16px;
+
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.consent-item:last-child{
+
+margin-bottom:0;
+
 }
 
-.success-message {
-  display: none;
-  text-align: center;
-  padding: 60px 40px;
+.consent-item input{
+
+width:20px;
+height:20px;
+
+margin-top:2px;
+
+accent-color:var(--green);
+
 }
 
-.success-icon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, var(--green-primary), var(--blue-primary));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 24px;
-  animation: scaleIn 0.5s ease;
+.submit-btn{
+
+width:100%;
+
+height:58px;
+
+border:none;
+
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+var(--green),
+var(--blue)
+);
+
+color:white;
+
+font-size:19px;
+
+font-weight:800;
+
+font-family:inherit;
+
+cursor:pointer;
+
+margin-top:28px;
+
+transition:0.2s;
+
+box-shadow:
+0 10px 24px rgba(46,204,113,0.25);
+
 }
 
-.success-icon svg {
-  width: 40px;
-  height: 40px;
-  stroke: var(--white);
-  stroke-width: 3;
+.submit-btn:hover{
+
+transform:translateY(-2px);
+
 }
 
-@keyframes scaleIn {
-  from { transform: scale(0); }
-  to { transform: scale(1); }
+.footer{
+
+text-align:center;
+
+padding:30px;
+
+font-size:13px;
+
+color:#6B7280;
+
 }
 
-.success-message h2 {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--gray-900);
-  margin-bottom: 12px;
+.success{
+
+display:none;
+
+text-align:center;
+
+padding:70px 30px;
+
 }
 
-.success-message p {
-  font-size: 15px;
-  color: var(--gray-600);
-  line-height: 1.6;
+.success h2{
+
+font-size:30px;
+
+margin-bottom:12px;
+
 }
 
-.footer {
-  text-align: center;
-  padding: 24px;
-  color: var(--gray-600);
-  font-size: 13px;
+.success p{
+
+font-size:16px;
+
+line-height:1.7;
+
+color:#6B7280;
+
 }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin: 24px 0;
-  padding: 20px;
-  background: var(--gray-50);
-  border-radius: 12px;
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:28px;
+
 }
 
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.hero-image{
+
+height:220px;
+
 }
 
-.feature-icon {
-  width: 44px;
-  height: 44px;
-  background: linear-gradient(135deg, var(--green-primary), var(--blue-primary));
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.content{
+
+padding:24px;
+
 }
 
-.feature-icon svg {
-  width: 24px;
-  height: 24px;
-  stroke: var(--white);
-  stroke-width: 2;
+.form-grid{
+
+grid-template-columns:1fr;
+
 }
 
-.feature-text {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--gray-800);
-  line-height: 1.4;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 12px;
-  }
-
-  .header {
-    padding: 20px 20px 24px;
-  }
-
-  .header h1 {
-    font-size: 22px;
-  }
-
-  .form-body {
-    padding: 24px 20px 32px;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-image {
-    height: 200px;
-  }
-
-  .features {
-    grid-template-columns: 1fr;
-  }
-}
 </style>
+
 </head>
+
 <body>
 
 <div class="container">
-  <div class="form-container">
-    <div class="header">
-      <img src="/mnt/user-data/uploads/EV7-Logo-with-Tagline1.png" alt="EV7 Logo" class="logo">
-      <h1>ลงทะเบียนรับสิทธิ์พิเศษ</h1>
-      <p>ร่วมเป็นส่วนหนึ่งของแท็กซี่ไฟฟ้า เพื่อคนไทย วันนี้</p>
-    </div>
 
-    <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&h=400&fit=crop&q=80" alt="Electric Taxi" class="hero-image">
+<div class="main-card">
 
-    <div class="form-body" id="formBody">
+<div class="hero">
 
-      <div class="features">
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-            </svg>
-          </div>
-          <div class="feature-text">ไม่มีค่าใช้จ่าย<br>ในการสมัคร</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-            </svg>
-          </div>
-          <div class="feature-text">รายได้ดี<br>มั่นคง</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <div class="feature-text">ประหยัด<br>ค่าน้ำมัน</div>
-        </div>
-      </div>
+<img
+src="https://drive.google.com/uc?export=view&id=1vq1_xSdaADWhPNmOdFp9Nz2Dsxvrz33j"
+class="logo"
+alt="EV7"
 
-      <form id="leadForm">
+>
 
-        <div class="section-title">ข้อมูลส่วนตัว</div>
+<h1>
+สมัครขับ EV7
+</h1>
 
-        <div class="form-grid">
-          <div class="form-group full">
-            <label>ชื่อ-นามสกุล <span class="required">*</span></label>
-            <input type="text" name="fullname" placeholder="เช่น สมชาย ใจดี" required autocomplete="name">
-          </div>
+<p>
+ลงทะเบียนเพื่อรับข้อเสนอพิเศษ
+และให้เจ้าหน้าที่ติดต่อกลับ
+ภายใน 24 ชั่วโมง
+</p>
 
-          <div class="form-group">
-            <label>เบอร์โทรที่ติดต่อได้ <span class="required">*</span></label>
-            <input type="tel" name="phone" placeholder="0812345678" maxlength="12" required autocomplete="tel">
-          </div>
+</div>
 
-          <div class="form-group">
-            <label>อายุ <span class="required">*</span></label>
-            <select name="age" required>
-              <option value="">เลือกอายุ</option>
-              <script>
-                for(let i=18; i<=70; i++) {
-                  document.write(`<option value="${i}">${i} ปี</option>`);
-                }
-              </script>
-            </select>
-          </div>
-        </div>
+<img
+src="https://drive.google.com/uc?export=view&id=1i7aIQe9tuCXgEPCr99brqmIToa5NIXkb"
+class="hero-image"
+alt="EV7 Car"
 
-        <div class="section-title">เอกสารและคุณสมบัติ</div>
+>
 
-        <div class="form-grid">
-          <div class="form-group">
-            <label>มีบัตรประชาชนหรือไม่ <span class="required">*</span></label>
-            <select name="idcard" required>
-              <option value="">เลือก</option>
-              <option value="มี">มี</option>
-              <option value="ไม่มี">ไม่มี</option>
-            </select>
-          </div>
+<div class="content" id="formBody">
 
-          <div class="form-group">
-            <label>มีใบขับขี่สาธารณะ/บัตรเหลือง <span class="required">*</span></label>
-            <select name="publicLicense" required>
-              <option value="">เลือก</option>
-              <option value="มี">มี</option>
-              <option value="ไม่มี">ไม่มี</option>
-              <option value="อยู่ระหว่างดำเนินการ">อยู่ระหว่างดำเนินการ</option>
-            </select>
-          </div>
+<div class="badge">
+EV7 Electric Taxi
+</div>
 
-          <div class="form-group">
-            <label>มีใบขับขี่ส่วนบุคคลเกิน 1 ปี <span class="required">*</span></label>
-            <select name="privateLicense" required>
-              <option value="">เลือก</option>
-              <option value="มี">มี</option>
-              <option value="ไม่มี">ไม่มี</option>
-            </select>
-          </div>
+<div class="section-title">
+รุ่นรถและราคาเช่า
+</div>
 
-          <div class="form-group">
-            <label>มี Statement 6 เดือน <span class="required">*</span></label>
-            <select name="statement" required>
-              <option value="">เลือก</option>
-              <option value="มี">มี</option>
-              <option value="ไม่มี">ไม่มี</option>
-            </select>
-          </div>
-        </div>
+<div class="car-grid">
 
-        <div class="section-title">ประสบการณ์</div>
+<div class="car-card">
 
-        <div class="form-group">
-          <label>แอปพลิเคชันที่เคยขับ (เลือกได้มากกว่า 1)</label>
-          <div class="checkbox-grid">
-            <label class="checkbox-item">
-              <input type="checkbox" name="apps" value="Grab">
-              <span>Grab</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="apps" value="LINEMAN">
-              <span>LINEMAN</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="apps" value="Bolt">
-              <span>Bolt</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="apps" value="TADA">
-              <span>TADA</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="apps" value="LALAMOVE">
-              <span>LALAMOVE</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="apps" value="Maxim">
-              <span>Maxim</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="apps" value="Indrive">
-              <span>Indrive</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="apps" value="ไม่เคยขับ">
-              <span>ไม่เคยขับมาก่อน</span>
-            </label>
-          </div>
-        </div>
+<img
+src="https://drive.google.com/uc?export=view&id=1i7aIQe9tuCXgEPCr99brqmIToa5NIXkb"
+class="car-image"
 
-        <div class="consent-box">
-          <div class="consent-item required">
-            <input type="checkbox" name="pdpa" id="pdpa" required>
-            <label for="pdpa">
-              ข้าพเจ้ายินยอมให้ EV7 เก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคล เพื่อวัตถุประสงค์ในการพิจารณารับสมัครงาน และการติดต่อกลับตามนโยบาย PDPA
-            </label>
-          </div>
-          <div class="consent-item">
-            <input type="checkbox" name="marketing" id="marketing">
-            <label for="marketing">
-              ยินยอมรับข้อมูลข่าวสารและโปรโมชั่นทางการตลาดจาก EV7
-            </label>
-          </div>
-        </div>
+>
 
-        <input type="hidden" name="adsid" id="adsid">
+<div class="car-content">
 
-        <button type="submit" class="submit-btn">
-          <span id="btnText">ส่งข้อมูลลงทะเบียน</span>
-          <div class="spinner" id="spinner"></div>
-        </button>
+<div class="car-name">
+EV7 ES
+</div>
 
-      </form>
+<div class="car-price">
+777 บาท/วัน
+</div>
 
-    </div>
+</div>
 
-    <div class="success-message" id="successMessage">
-      <div class="success-icon">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-        </svg>
-      </div>
-      <h2>ส่งข้อมูลสำเร็จ!</h2>
-      <p>
-        ทีมงาน EV7 ได้รับข้อมูลของคุณเรียบร้อยแล้ว<br>
-        เจ้าหน้าที่จะติดต่อกลับภายใน 1-2 วันทำการ<br>
-        <strong>ขอบคุณที่สนใจร่วมงานกับเรา</strong>
-      </p>
-    </div>
+</div>
 
-  </div>
+<div class="car-card">
 
-  <div class="footer">
-    © 2024 EV7 - แท็กซี่ไฟฟ้า เพื่อคนไทย | ข้อมูลของคุณจะถูกเก็บเป็นความลับตามนโยบาย PDPA
-  </div>
+<img
+src="https://drive.google.com/uc?export=view&id=1i7aIQe9tuCXgEPCr99brqmIToa5NIXkb"
+class="car-image"
+
+>
+
+<div class="car-content">
+
+<div class="car-name">
+Y Plus 410
+</div>
+
+<div class="car-price">
+799 บาท/วัน
+</div>
+
+</div>
+
+</div>
+
+<div class="car-card">
+
+<img
+src="https://drive.google.com/uc?export=view&id=1i7aIQe9tuCXgEPCr99brqmIToa5NIXkb"
+class="car-image"
+
+>
+
+<div class="car-content">
+
+<div class="car-name">
+Y Plus 490
+</div>
+
+<div class="car-price">
+888 บาท/วัน
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="section-title">
+จุดเด่นและสิทธิประโยชน์
+</div>
+
+<div class="features">
+
+<div class="feature">
+<div class="feature-icon">
+🚕
+</div>
+<div class="feature-text">
+เช่าครบ 6 ปี ได้รถ
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">
+⚡
+</div>
+<div class="feature-text">
+อนุมัติไว ไม่เช็กเครดิตบูโร
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">
+🛠️
+</div>
+<div class="feature-text">
+ฟรีค่าบำรุงรักษา
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">
+🛡️
+</div>
+<div class="feature-text">
+ฟรีประกันภัยตลอดอายุสัญญา
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">
+🔋
+</div>
+<div class="feature-text">
+ฟรีประกันแบตเตอรี่
+600,000 กม. หรือ 8 ปี
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">
+🎁
+</div>
+<div class="feature-text">
+วันฟรีสูงสุด 4 วัน/เดือน*
+</div>
+</div>
+
+</div>
+
+<form id="leadForm">
+
+<div class="section-title">
+ข้อมูลผู้สมัคร
+</div>
+
+<div class="form-grid">
+
+<div class="form-group full">
+
+<label>
+ชื่อ-นามสกุล
+<span class="required">*</span>
+</label>
+
+<input
+type="text"
+name="fullname"
+placeholder="กรอกชื่อและนามสกุล"
+required
+
+>
+
+</div>
+
+<div class="form-group">
+
+<label>
+เบอร์โทรศัพท์
+<span class="required">*</span>
+</label>
+
+<input
+type="tel"
+name="phone"
+placeholder="0812345678"
+maxlength="12"
+required
+
+>
+
+</div>
+
+<div class="form-group">
+
+<label>
+อายุ
+<span class="required">*</span>
+</label>
+
+<select name="age" required>
+
+<option value="">
+เลือกอายุ
+</option>
+
+<script>
+
+for(let i=18;i<=70;i++){
+
+document.write(`
+<option value="${i}">
+${i} ปี
+</option>
+`)
+
+}
+
+</script>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+มีบัตรประชาชนหรือไม่
+<span class="required">*</span>
+</label>
+
+<select name="idcard" required>
+
+<option value="">
+เลือก
+</option>
+
+<option>
+มี
+</option>
+
+<option>
+ไม่มี
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+มีใบขับขี่สาธารณะ/บัตรเหลือง
+<span class="required">*</span>
+</label>
+
+<select name="publicLicense" required>
+
+<option value="">
+เลือก
+</option>
+
+<option>
+มี
+</option>
+
+<option>
+ไม่มี
+</option>
+
+<option>
+อยู่ระหว่างดำเนินการ
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+มีใบขับขี่ส่วนบุคคลเกิน 1 ปี
+<span class="required">*</span>
+</label>
+
+<select name="privateLicense" required>
+
+<option value="">
+เลือก
+</option>
+
+<option>
+มี
+</option>
+
+<option>
+ไม่มี
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+มี Statement 6 เดือน
+<span class="required">*</span>
+</label>
+
+<select name="statement" required>
+
+<option value="">
+เลือก
+</option>
+
+<option>
+มี
+</option>
+
+<option>
+ไม่มี
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="section-title">
+แอปที่เคยขับ
+</div>
+
+<div class="checkbox-grid">
+
+<label class="checkbox-item">
+<input type="checkbox" name="apps" value="Grab">
+<span>Grab</span>
+</label>
+
+<label class="checkbox-item">
+<input type="checkbox" name="apps" value="LINEMAN">
+<span>LINEMAN</span>
+</label>
+
+<label class="checkbox-item">
+<input type="checkbox" name="apps" value="Bolt">
+<span>Bolt</span>
+</label>
+
+<label class="checkbox-item">
+<input type="checkbox" name="apps" value="TADA">
+<span>TADA</span>
+</label>
+
+<label class="checkbox-item">
+<input type="checkbox" name="apps" value="LALAMOVE">
+<span>LALAMOVE</span>
+</label>
+
+<label class="checkbox-item">
+<input type="checkbox" name="apps" value="Maxim">
+<span>Maxim</span>
+</label>
+
+<label class="checkbox-item">
+<input type="checkbox" name="apps" value="Indrive">
+<span>Indrive</span>
+</label>
+
+<label class="checkbox-item">
+<input type="checkbox" name="apps" value="ไม่เคยขับ">
+<span>ไม่เคยขับ</span>
+</label>
+
+</div>
+
+<div class="benefit-box">
+
+<div class="benefit-item">
+✅ เช่าครบ 6 ปี ได้รถ
+</div>
+
+<div class="benefit-item">
+✅ อนุมัติไว ไม่เช็กเครดิตบูโร
+</div>
+
+<div class="benefit-item">
+✅ ฟรีค่าบำรุงรักษา
+</div>
+
+<div class="benefit-item">
+✅ ฟรีประกันภัยตลอดอายุสัญญา
+</div>
+
+<div class="benefit-item">
+✅ ฟรีประกันแบตเตอรี่ 600,000 กม. หรือ 8 ปี
+</div>
+
+<div class="benefit-item">
+✅ วันฟรีสูงสุด 4 วัน/เดือน*
+</div>
+
+</div>
+
+<div class="consent">
+
+<div class="consent-item">
+
+<input
+type="checkbox"
+name="pdpa"
+required
+
+>
+
+<div>
+ยินยอมให้ EV7 ติดต่อกลับ
+และจัดเก็บข้อมูลตาม PDPA
+</div>
+
+</div>
+
+<div class="consent-item">
+
+<input
+type="checkbox"
+name="marketing"
+
+>
+
+<div>
+ยินยอมรับข่าวสารและโปรโมชั่น
+จาก EV7
+</div>
+
+</div>
+
+</div>
+
+<input
+type="hidden"
+name="adsid"
+id="adsid"
+
+>
+
+<button
+type="submit"
+class="submit-btn"
+id="submitBtn"
+
+>
+
+ตรวจสอบสิทธิ์และรับข้อเสนอ </button>
+
+</form>
+
+</div>
+
+<div class="success" id="successMessage">
+
+<h2>
+ส่งข้อมูลสำเร็จ 🎉
+</h2>
+
+<p>
+เจ้าหน้าที่จะติดต่อกลับ
+ภายใน 24 ชั่วโมง
+</p>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+© 2026 EV7 Electric Taxi
+
+</div>
+
 </div>
 
 <script>
-const params = new URLSearchParams(window.location.search);
+
+const params =
+new URLSearchParams(
+window.location.search
+);
 
 document.getElementById('adsid').value =
-  params.get('gclid') ||
-  params.get('utm_id') ||
-  params.get('ad_id') ||
-  'organic';
 
-const phoneInput = document.querySelector('input[name="phone"]');
+params.get('gclid') ||
+params.get('utm_id') ||
+params.get('ad_id') ||
+'organic';
 
-phoneInput.addEventListener('input', function(e) {
-  let value = e.target.value.replace(/\D/g, '');
-  
-  if (value.length > 10) {
-    value = value.slice(0, 10);
-  }
-  
-  if (value.length >= 10) {
-    value = value.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-  }
-  
-  e.target.value = value;
+const phoneInput =
+document.querySelector(
+'input[name="phone"]'
+);
+
+phoneInput.addEventListener(
+'input',
+function(e){
+
+let value =
+e.target.value.replace(/\D/g,'');
+
+if(value.length > 10){
+
+value =
+value.slice(0,10);
+
+}
+
+if(value.length >= 10){
+
+value =
+value.replace(
+/(\d{3})(\d{3})(\d{4})/,
+'$1-$2-$3'
+);
+
+}
+
+e.target.value = value;
+
 });
 
-document.getElementById('leadForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
+document
+.getElementById('leadForm')
 
-  const submitBtn = document.querySelector('.submit-btn');
-  const btnText = document.getElementById('btnText');
-  const spinner = document.getElementById('spinner');
+.addEventListener(
+'submit',
 
-  submitBtn.disabled = true;
-  btnText.style.display = 'none';
-  spinner.style.display = 'block';
+async function(e){
 
-  const formData = new FormData(this);
+e.preventDefault();
 
-  const data = {
-    fullname: formData.get('fullname'),
-    phone: formData.get('phone').replace(/\D/g, ''),
-    age: formData.get('age'),
-    idcard: formData.get('idcard'),
-    publicLicense: formData.get('publicLicense'),
-    privateLicense: formData.get('privateLicense'),
-    statement: formData.get('statement'),
-    apps: formData.getAll('apps'),
-    pdpa: formData.get('pdpa') ? 'Yes' : 'No',
-    marketing: formData.get('marketing') ? 'Yes' : 'No',
-    adsid: formData.get('adsid'),
-    timestamp: new Date().toISOString(),
-    source: 'EV7 Landing Page'
-  };
+const submitBtn =
+document.getElementById('submitBtn');
 
-  try {
-    await fetch('https://script.google.com/macros/s/AKfycby0aoVRgxkw7sqbv8HisqH5dmHkA9icq2ZfXoeTt7FBWzyUkqhsMlaGNQRKeD59PkoglA/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
+submitBtn.disabled = true;
 
-    document.getElementById('formBody').style.display = 'none';
-    document.getElementById('successMessage').style.display = 'block';
+submitBtn.innerHTML =
+'กำลังส่งข้อมูล...';
 
-  } catch (error) {
-    alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
-    submitBtn.disabled = false;
-    btnText.style.display = 'block';
-    spinner.style.display = 'none';
-  }
+const formData =
+new FormData(this);
+
+const data = {
+
+fullname:
+formData.get('fullname'),
+
+phone:
+formData.get('phone')
+.replace(/\D/g,''),
+
+age:
+formData.get('age'),
+
+idcard:
+formData.get('idcard'),
+
+publicLicense:
+formData.get('publicLicense'),
+
+privateLicense:
+formData.get('privateLicense'),
+
+statement:
+formData.get('statement'),
+
+apps:
+formData.getAll('apps'),
+
+pdpa:
+formData.get('pdpa')
+? 'Yes'
+: 'No',
+
+marketing:
+formData.get('marketing')
+? 'Yes'
+: 'No',
+
+adsid:
+formData.get('adsid'),
+
+timestamp:
+new Date().toISOString(),
+
+source:
+'EV7 Landing Page'
+
+};
+
+try{
+
+await fetch(
+'https://script.google.com/macros/s/AKfycby0aoVRgxkw7sqbv8HisqH5dmHkA9icq2ZfXoeTt7FBWzyUkqhsMlaGNQRKeD59PkoglA/exec',
+{
+method:'POST',
+mode:'no-cors',
+headers:{
+'Content-Type':'application/json'
+},
+body:JSON.stringify(data)
+}
+);
+
+document
+.getElementById('formBody')
+.style.display = 'none';
+
+document
+.getElementById('successMessage')
+.style.display = 'block';
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
 });
+
+}
+catch(error){
+
+alert(
+'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง'
+);
+
+submitBtn.disabled = false;
+
+submitBtn.innerHTML =
+'ตรวจสอบสิทธิ์และรับข้อเสนอ';
+
+}
+
+});
+
 </script>
 
 </body>
