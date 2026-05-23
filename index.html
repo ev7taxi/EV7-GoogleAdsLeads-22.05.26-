@@ -51,111 +51,81 @@ body{
   overflow:hidden;
   box-shadow:0 10px 30px rgba(15,23,42,0.08);
 }
+
 .hero{
-
-  background:
-  linear-gradient(
-    135deg,
-    #0F172A 0%,
-    #1E3A8A 100%
-  );
-
+  background:linear-gradient(135deg,#0F172A 0%,#1E3A8A 100%);
   padding:10px 14px 12px;
-
   min-height:120px;
-
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-
   text-align:center;
-
   position:relative;
-
   overflow:hidden;
-
 }
 
 .hero::before{
-
   content:"";
-
   position:absolute;
-
   width:180px;
   height:180px;
-
   border-radius:50%;
-
-  background:
-  rgba(255,255,255,0.05);
-
+  background:rgba(255,255,255,0.05);
   top:-100px;
   right:-70px;
-
 }
 
 .logo{
-
   width:120px;
-
   max-width:100%;
-
   margin:auto auto 8px;
-
   display:block;
-
   position:relative;
-
   z-index:2;
-
 }
 
 .hero h1{
-
   font-size:22px;
-
   line-height:1.2;
-
   font-weight:800;
-
   color:white;
-
   margin-bottom:4px;
-
   position:relative;
-
   z-index:2;
-
 }
 
 .hero p{
-
   max-width:520px;
-
   margin:auto;
-
   font-size:13px;
-
   line-height:1.45;
-
-  color:
-  rgba(255,255,255,0.92);
-
+  color:rgba(255,255,255,0.92);
   position:relative;
-
   z-index:2;
-
-}.content{
-  padding:5px;
 }
+
+.content{
+  padding:8px;
+}
+
+.section-title{
+  font-size:16px;
+  font-weight:800;
+  color:#1E3A8A;
+  margin:14px 0 10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
 .section-title::before{
   content:"";
   width:4px;
-  height:10px;
+  height:18px;
   border-radius:999px;
   background:linear-gradient(180deg,#2563EB,#22C55E);
+  flex-shrink:0;
 }
 
 .car-grid{
@@ -217,11 +187,8 @@ body{
 
 .features{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
   gap:8px;
-
   margin-bottom:18px;
 }
 
@@ -233,6 +200,10 @@ body{
   display:flex;
   gap:10px;
   align-items:center;
+}
+
+.feature:nth-child(n+3){
+  grid-column:1 / -1;
 }
 
 .feature-icon{
@@ -437,16 +408,12 @@ select:focus{
 }
 
 @media(min-width:769px){
-  .features{
-  grid-template-columns:1fr 1fr;
-}
-
   .container{
     padding:20px 16px 36px;
   }
 
   .hero{
-    padding:15px 15px 15px;
+    padding:15px;
   }
 
   .logo{
@@ -498,7 +465,6 @@ select:focus{
   .checkbox-grid{
     grid-template-columns:repeat(4,1fr);
   }
-
 }
 </style>
 </head>
@@ -525,8 +491,11 @@ select:focus{
       </p>
 
     </div>
+
+    <div class="content" id="formBody">
+
       <div class="section-title">
-        รุ่นรถ EV7 Taxi แท็กซี่ไฟฟ้า
+        รุ่นรถแท็กซี่ไฟฟ้า
       </div>
 
       <div class="car-grid">
@@ -575,37 +544,46 @@ select:focus{
 
       <div class="features">
 
-       <div class="feature">
-  <div class="feature-icon">🚕</div>
-  <div class="feature-text">
-    เช่าครบ 6 ปี ได้รถ
-  </div>
-</div>
+        <div class="feature">
+          <div class="feature-icon">🚕</div>
+          <div class="feature-text">
+            เช่าครบ 6 ปี ได้รถ
+          </div>
+        </div>
 
-<div class="feature">
-  <div class="feature-icon">⚡</div>
-  <div class="feature-text">
-    อนุมัติไว ไม่เช็กเครดิตบูโร
-  </div>
-</div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-text">
+            อนุมัติไว ไม่เช็กเครดิตบูโร
+          </div>
+        </div>
+
         <div class="feature">
           <div class="feature-icon">🛠️</div>
-          <div class="feature-text">ฟรีค่าบำรุงรักษา 6 ปีเต็ม</div>
+          <div class="feature-text">
+            ฟรีค่าบำรุงรักษา 6 ปีเต็ม
+          </div>
         </div>
 
         <div class="feature">
           <div class="feature-icon">🛡️</div>
-          <div class="feature-text">ฟรีประกันภัย, ภาษี และ พ.ร.บ. ตลอดอายุสัญญา</div>
+          <div class="feature-text">
+            ฟรีประกันภัย, ภาษี และ พ.ร.บ. ตลอดอายุสัญญา
+          </div>
         </div>
 
         <div class="feature">
           <div class="feature-icon">🔋</div>
-          <div class="feature-text">ฟรีประกันแบตเตอรี่ 600,000 กม. หรือ 8 ปี</div>
+          <div class="feature-text">
+            ฟรีประกันแบตเตอรี่ 600,000 กม. หรือ 8 ปี
+          </div>
         </div>
 
         <div class="feature">
           <div class="feature-icon">🎁</div>
-          <div class="feature-text">วันฟรีสูงสุด 4 วัน/เดือน*</div>
+          <div class="feature-text">
+            วันฟรีสูงสุด 4 วัน/เดือน*
+          </div>
         </div>
 
       </div>
