@@ -150,36 +150,6 @@ body{
 }.content{
   padding:5px;
 }
-
-.badge-wrap{
-  text-align:center;
-}
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:6px 14px;
-  border-radius:999px;
-  background:#EFF6FF;
-  color:#1D4ED8;
-  font-size:14px;
-  font-weight:700;
-  margin-bottom:12px;
-}
-
-.section-title{
-  font-size:16px;
-  font-weight:800;
-  letter-spacing:0.02em;
-  text-transform:none;
-  color:#1E3A8A;
-  margin:5px 0 10px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
 .section-title::before{
   content:"";
   width:4px;
@@ -247,8 +217,11 @@ body{
 
 .features{
   display:grid;
-  grid-template-columns:1fr;
+
+  grid-template-columns:1fr 1fr;
+
   gap:8px;
+
   margin-bottom:18px;
 }
 
@@ -464,6 +437,9 @@ select:focus{
 }
 
 @media(min-width:769px){
+  .features{
+  grid-template-columns:1fr 1fr;
+}
 
   .container{
     padding:20px 16px 36px;
@@ -549,17 +525,8 @@ select:focus{
       </p>
 
     </div>
-
-    <div class="content" id="formBody">
-
-      <div class="badge-wrap">
-        <div class="badge">
-          EV7 Taxi แท็กซี่ไฟฟ้า
-        </div>
-      </div>
-
       <div class="section-title">
-        รุ่นรถและราคาเช่า
+        รุ่นรถ EV7 Taxi แท็กซี่ไฟฟ้า
       </div>
 
       <div class="car-grid">
@@ -608,16 +575,19 @@ select:focus{
 
       <div class="features">
 
-        <div class="feature">
-          <div class="feature-icon">🚕</div>
-          <div class="feature-text">เช่าครบ 6 ปี ได้รถ</div>
-        </div>
+       <div class="feature">
+  <div class="feature-icon">🚕</div>
+  <div class="feature-text">
+    เช่าครบ 6 ปี ได้รถ
+  </div>
+</div>
 
-        <div class="feature">
-          <div class="feature-icon">🚀</div>
-          <div class="feature-text">อนุมัติไว ไม่เช็กเครดิตบูโร</div>
-        </div>
-
+<div class="feature">
+  <div class="feature-icon">⚡</div>
+  <div class="feature-text">
+    อนุมัติไว ไม่เช็กเครดิตบูโร
+  </div>
+</div>
         <div class="feature">
           <div class="feature-icon">🛠️</div>
           <div class="feature-text">ฟรีค่าบำรุงรักษา 6 ปีเต็ม</div>
