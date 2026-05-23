@@ -105,6 +105,18 @@ function createError(element,message){
   error.innerText =
   message;
 
+  error.style.color =
+  '#DC2626';
+
+  error.style.fontSize =
+  '13px';
+
+  error.style.fontWeight =
+  '700';
+
+  error.style.marginTop =
+  '8px';
+
   element.appendChild(error);
 
 }
@@ -177,23 +189,36 @@ async function(e){
     'input[name="pdpa"]'
   );
 
+  const pdpaContainer =
+  pdpa.closest(
+    '.consent-item'
+  );
+
+  if(!pdpa.checked){
+
+    createError(
+      pdpaContainer,
+      'ท่านยังไม่ได้กดยินยอม'
+    );
+
+    isValid = false;
+
+  }
+
   const marketing =
   document.querySelector(
     'input[name="marketing"]'
   );
 
-  const consentBox =
-  document.querySelector(
-    '.consent'
+  const marketingContainer =
+  marketing.closest(
+    '.consent-item'
   );
 
-  if(
-    !pdpa.checked ||
-    !marketing.checked
-  ){
+  if(!marketing.checked){
 
     createError(
-      consentBox,
+      marketingContainer,
       'ท่านยังไม่ได้กดยินยอม'
     );
 
