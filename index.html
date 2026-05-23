@@ -134,7 +134,7 @@ body{
   font-size:15px;
   font-weight:800;
   color:#1E3A8A;
-  margin:14px 0 8px;
+  margin:10px 0 8px;
   display:flex;
   align-items:center;
   gap:8px;
@@ -143,7 +143,7 @@ body{
 .section-title::before{
   content:"";
   width:5px;
-  height:18px;
+  height:15px;
   border-radius:999px;
   background:linear-gradient(180deg,#FF6B00,#2563EB);
   flex-shrink:0;
@@ -166,7 +166,6 @@ body{
 }
 
 .form-highlight-title::before{
-  content:"🔥";
   font-size:18px;
 }
 
@@ -515,7 +514,7 @@ select:focus{
           </div>
 
           <div class="form-group">
-            <label>มีบัตรประชาชนหรือไม่ <span class="required">*</span></label>
+            <label>มีบัตรประชาชน <span class="required">*</span></label>
             <select name="idcard" required>
               <option value="">เลือก</option>
               <option value="มี">มี</option>
@@ -587,7 +586,7 @@ select:focus{
         <input type="hidden" name="adsid" id="adsid">
 
         <button type="submit" class="submit-btn" id="submitBtn">
-          ตรวจสอบสิทธิ์และรับข้อเสนอ
+          ลงทะเบียนรับข้อเสนอ
         </button>
 
       </form>
