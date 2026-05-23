@@ -6,12 +6,13 @@ const SCRIPT_URL =
 const ageSelect =
 document.querySelector('select[name="age"]');
 
-for(let i = 18; i <= 70; i++){
+for(let i=18; i<=70; i++){
 
   const option =
   document.createElement('option');
 
   option.value = i;
+
   option.textContent = `${i} ปี`;
 
   ageSelect.appendChild(option);
@@ -28,7 +29,7 @@ document.getElementById('adsid').value =
 params.get('gclid') ||
 params.get('utm_id') ||
 params.get('ad_id') ||
-'organic';
+'Google Ads';
 
 const phoneInput =
 document.querySelector(
@@ -91,8 +92,6 @@ function removeErrors(){
 
 function createError(element,message){
 
-  if(!element) return;
-
   element.classList.add(
     'error-field'
   );
@@ -106,24 +105,13 @@ function createError(element,message){
   error.innerText =
   message;
 
-  error.style.color =
-  '#DC2626';
-
-  error.style.fontSize =
-  '13px';
-
-  error.style.fontWeight =
-  '700';
-
-  error.style.marginTop =
-  '8px';
-
   element.appendChild(error);
 
 }
 
 document
 .getElementById('leadForm')
+
 .addEventListener(
 'submit',
 
@@ -143,13 +131,19 @@ async function(e){
     'input[name="phone"]'
   );
 
+  const phoneContainer =
+  phoneField.closest(
+    '.form-group'
+  );
+
   const phone =
-  phoneField.value.replace(/\D/g,'');
+  phoneField.value
+  .replace(/\D/g,'');
 
   if(phone.length !== 10){
 
     createError(
-      phoneField.parentElement,
+      phoneContainer,
       'กรุณากรอกเบอร์โทรศัพท์ให้ครบ 10 หลัก'
     );
 
@@ -157,7 +151,7 @@ async function(e){
 
   }
 
-  const checkedApps =
+  const apps =
   document.querySelectorAll(
     'input[name="apps"]:checked'
   );
@@ -167,7 +161,7 @@ async function(e){
     '.checkbox-grid'
   );
 
-  if(checkedApps.length === 0){
+  if(apps.length === 0){
 
     createError(
       checkboxGrid,
@@ -183,26 +177,23 @@ async function(e){
     'input[name="pdpa"]'
   );
 
-  if(!pdpa.checked){
-
-    createError(
-      pdpa.parentElement,
-      'ท่านยังไม่ได้กดยินยอม'
-    );
-
-    isValid = false;
-
-  }
-
   const marketing =
   document.querySelector(
     'input[name="marketing"]'
   );
 
-  if(!marketing.checked){
+  const consentBox =
+  document.querySelector(
+    '.consent'
+  );
+
+  if(
+    !pdpa.checked ||
+    !marketing.checked
+  ){
 
     createError(
-      marketing.parentElement,
+      consentBox,
       'ท่านยังไม่ได้กดยินยอม'
     );
 
@@ -266,9 +257,11 @@ async function(e){
     apps:
     formData.getAll('apps'),
 
-    pdpa:'Yes',
+    pdpa:
+    'Yes',
 
-    marketing:'Yes',
+    marketing:
+    'Yes',
 
     adsid:
     formData.get('adsid'),
@@ -277,7 +270,7 @@ async function(e){
     new Date().toISOString(),
 
     source:
-    'EV7 Landing Page'
+    'EV7 Taxi Github Landing Page'
 
   };
 
@@ -285,7 +278,7 @@ async function(e){
 
     const response =
     await fetch(
-      https://script.google.com/macros/s/AKfycbxAnLDyxwWeV0rQts_lRs8ZBJGMEYUOlYZvbPu07nVSWP4kRXZPVa2YOjZByBKl5Efr/exec,
+      SCRIPT_URL,
       {
         method:'POST',
         headers:{
@@ -304,13 +297,11 @@ async function(e){
 
       document
       .getElementById('formBody')
-      .style.display =
-      'none';
+      .style.display = 'none';
 
       document
       .getElementById('successMessage')
-      .style.display =
-      'block';
+      .style.display = 'block';
 
       window.scrollTo({
 
