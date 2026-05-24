@@ -160,10 +160,6 @@ body{
   gap:8px;
 }
 
-.form-highlight-title::before{
-  font-size:18px;
-}
-
 .car-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -369,10 +365,6 @@ select:focus{
   box-shadow:0 12px 26px rgba(255,107,0,0.3);
 }
 
-.submit-btn:hover{
-  background:linear-gradient(135deg,var(--orange-dark),#FF7B1A);
-}
-
 .submit-btn:disabled{
   opacity:0.7;
   cursor:not-allowed;
@@ -418,27 +410,14 @@ select:focus{
   <div class="main-card">
 
     <div class="hero">
-
-      <img
-        src="image/EV7_Logo_White.png"
-        class="logo"
-        alt="EV7 Logo"
-      >
-
+      <img src="image/EV7_Logo_White.png" class="logo" alt="EV7 Logo">
       <h1>สมัครเช่าขับ EV7 Taxi</h1>
-
-      <p>
-        ลงทะเบียนเพื่อรับข้อเสนอพิเศษ
-        พร้อมให้เจ้าหน้าที่ติดต่อกลับภายใน 24 ชั่วโมง
-      </p>
-
+      <p>ลงทะเบียนเพื่อรับข้อเสนอพิเศษ พร้อมให้เจ้าหน้าที่ติดต่อกลับภายใน 24 ชั่วโมง</p>
     </div>
 
     <div class="content" id="formBody">
 
-      <div class="badge">
-        รุ่นรถแท็กซี่ไฟฟ้า
-      </div>
+      <div class="badge">รุ่นรถแท็กซี่ไฟฟ้า</div>
 
       <div class="car-grid">
 
@@ -468,26 +447,20 @@ select:focus{
 
       </div>
 
-      <div class="section-title">
-        ทำไมเช่า EV7 Taxi ถึงดีกว่า
-      </div>
+      <div class="section-title">ทำไมเช่า EV7 Taxi ถึงดีกว่า</div>
 
       <div class="features-list">
-
         <div class="feature-line">🚕 เช่าครบ 6 ปี ได้รถ</div>
         <div class="feature-line">⚡ อนุมัติไว ไม่เช็กเครดิตบูโร</div>
         <div class="feature-line">🛠️ ฟรีค่าบำรุงรักษา 6 ปีเต็ม</div>
         <div class="feature-line">🛡️ ฟรีประกันภัย, ภาษี และ พ.ร.บ. ตลอดอายุสัญญา</div>
         <div class="feature-line">🔋 ฟรีประกันแบตเตอรี่ 600,000 กม. หรือ 8 ปี</div>
         <div class="feature-line">🎁 วันฟรีสูงสุด 4 วัน/เดือน*</div>
-
       </div>
 
       <form id="leadForm">
 
-        <div class="form-highlight-title">
-          🔥ลงทะเบียนรับข้อมูลและสิทธิพิเศษ🔥
-        </div>
+        <div class="form-highlight-title">🔥ลงทะเบียนรับข้อมูลและสิทธิพิเศษ🔥</div>
 
         <div class="form-grid">
 
@@ -547,12 +520,9 @@ select:focus{
 
         </div>
 
-        <div class="section-title">
-          แอปที่ขับอยู่หรือเคยขับในระยะเวลา 6 เดือน
-        </div>
+        <div class="section-title">แอปที่ขับอยู่หรือเคยขับในระยะเวลา 6 เดือน</div>
 
         <div class="checkbox-grid">
-
           <label class="checkbox-item"><input type="checkbox" name="apps" value="Grab"><span>Grab</span></label>
           <label class="checkbox-item"><input type="checkbox" name="apps" value="LINEMAN"><span>LINEMAN</span></label>
           <label class="checkbox-item"><input type="checkbox" name="apps" value="Bolt"><span>Bolt</span></label>
@@ -561,11 +531,9 @@ select:focus{
           <label class="checkbox-item"><input type="checkbox" name="apps" value="Maxim"><span>Maxim</span></label>
           <label class="checkbox-item"><input type="checkbox" name="apps" value="Indrive"><span>Indrive</span></label>
           <label class="checkbox-item"><input type="checkbox" name="apps" value="ไม่เคยขับ"><span>ไม่เคยขับ</span></label>
-
         </div>
 
         <div class="consent">
-
           <div class="consent-item">
             <input type="checkbox" name="pdpa">
             <div>ยินยอมให้ EV7 ติดต่อกลับ และจัดเก็บข้อมูลตาม PDPA</div>
@@ -575,7 +543,6 @@ select:focus{
             <input type="checkbox" name="marketing">
             <div>ยินยอมรับข่าวสารและโปรโมชั่นจาก EV7 Taxi</div>
           </div>
-
         </div>
 
         <input type="hidden" name="adsid" id="adsid">
@@ -595,9 +562,7 @@ select:focus{
 
   </div>
 
-  <div class="footer">
-    © 2026 EV7 Co., Ltd.
-  </div>
+  <div class="footer">© 2026 EV7 Co., Ltd.</div>
 
 </div>
 
@@ -625,7 +590,6 @@ document.getElementById('adsid').value =
 const phoneInput = document.querySelector('input[name="phone"]');
 
 phoneInput.addEventListener('input', function(e){
-
   let value = e.target.value.replace(/\D/g,'');
 
   if(value.length > 10){
@@ -640,7 +604,6 @@ phoneInput.addEventListener('input', function(e){
   }
 
   e.target.value = value;
-
 });
 
 function removeErrors(){
@@ -655,49 +618,38 @@ function showError(element,message){
 }
 
 document.getElementById('leadForm').addEventListener('submit', async function(e){
-
   e.preventDefault();
   removeErrors();
 
   let isValid = true;
   const submitBtn = document.getElementById('submitBtn');
 
-  const phone = document
-    .querySelector('input[name="phone"]')
-    .value
-    .replace(/\D/g,'');
+  const phoneField = document.querySelector('input[name="phone"]');
+  const phone = phoneField.value.replace(/\D/g,'');
 
   if(phone.length !== 10){
-    showError(
-      document.querySelector('input[name="phone"]').parentElement,
-      'กรุณากรอกเบอร์โทรศัพท์ให้ครบ 10 หลัก'
-    );
+    showError(phoneField.parentElement,'กรุณากรอกเบอร์โทรศัพท์ให้ครบ 10 หลัก');
     isValid = false;
   }
 
   const checkedApps = document.querySelectorAll('input[name="apps"]:checked');
 
   if(checkedApps.length === 0){
-    showError(
-      document.querySelector('.checkbox-grid').parentElement,
-      'กรุณาเลือกอย่างน้อย 1 รายการ'
-    );
+    showError(document.querySelector('.checkbox-grid').parentElement,'กรุณาเลือกอย่างน้อย 1 รายการ');
     isValid = false;
   }
 
-  if(!document.querySelector('input[name="pdpa"]').checked){
-    showError(
-      document.querySelector('.consent'),
-      'ท่านยังไม่ได้กดยินยอม PDPA'
-    );
+  const pdpa = document.querySelector('input[name="pdpa"]');
+
+  if(!pdpa.checked){
+    showError(document.querySelector('.consent'),'ท่านยังไม่ได้กดยินยอม PDPA');
     isValid = false;
   }
 
-  if(!document.querySelector('input[name="marketing"]').checked){
-    showError(
-      document.querySelector('.consent'),
-      'ท่านยังไม่ได้กดยินยอมรับข่าวสาร'
-    );
+  const marketing = document.querySelector('input[name="marketing"]');
+
+  if(!marketing.checked){
+    showError(document.querySelector('.consent'),'ท่านยังไม่ได้กดยินยอมรับข่าวสาร');
     isValid = false;
   }
 
@@ -726,30 +678,39 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
     source: 'EV7 Landing Page'
   };
 
-try{
+  try{
 
-  await fetch(
-    SCRIPT_URL,
-    {
-      method:'POST',
-      mode:'no-cors',
-      body:JSON.stringify(data)
-    }
-  );
+    await fetch(
+      SCRIPT_URL,
+      {
+        method:'POST',
+        mode:'no-cors',
+        body:JSON.stringify(data)
+      }
+    );
 
-  document.getElementById('formBody').style.display = 'none';
+    document.getElementById('formBody').style.display = 'none';
+    document.getElementById('successMessage').style.display = 'block';
 
-  document.getElementById('successMessage').style.display = 'block';
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    });
 
-}
-catch(error){
+  }
+  catch(error){
 
-  console.error(error);
+    console.error(error);
 
-  alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+    alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
 
-  submitBtn.disabled = false;
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'ลงทะเบียนรับข้อเสนอ';
 
-  submitBtn.innerHTML = 'ลงทะเบียน';
+  }
 
-}
+});
+</script>
+
+</body>
+</html>
